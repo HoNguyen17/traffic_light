@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Motorcycle routes for traffic simulation -->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    
+    <!-- Vehicle Type Definition for Motorcycles -->
+    <vType id="motorcycle" accel="3.0" decel="5.0" sigma="0.5" length="2.2" minGap="1.5" maxSpeed="65.0" color="0,0,1"/>
+    
+    <!-- Routes -->
+    <route id="route_moto_1" edges="1to2 2to3"/>
+    <route id="route_moto_2" edges="2to3 3to4"/>
+    <route id="route_moto_3" edges="1to2 2to3 3to4 4to1"/>
+    
+    <!-- Vehicle Definitions -->
+    <vehicle id="moto_0" type="motorcycle" route="route_moto_1" depart="1.00" color="0,0,1"/>
+    <vehicle id="moto_1" type="motorcycle" route="route_moto_2" depart="6.00" color="0,0,1"/>
+    <vehicle id="moto_2" type="motorcycle" route="route_moto_3" depart="12.00" color="0,0,1"/>
+    <vehicle id="moto_3" type="motorcycle" route="route_moto_1" depart="17.00" color="0,0,1"/>
+    <vehicle id="moto_4" type="motorcycle" route="route_moto_2" depart="22.00" color="0,0,1"/>
+    <vehicle id="moto_5" type="motorcycle" route="route_moto_1" depart="28.00" color="0,0,1"/>
+    
+</routes>
