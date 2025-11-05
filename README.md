@@ -177,9 +177,9 @@ The next phase is to build a custom 2D visualization using JavaFX to replace the
 ---
 
 ## Development Roadmap
-- [x] Basic SUMO connection via TraaS
-- [x] Vehicle tracking and position retrieval
-- [x] Console output of simulation data
+- [ ] Basic SUMO connection via TraaS
+- [ ] Vehicle tracking and position retrieval
+- [ ] Console output of simulation data
 - [ ] Parse network.net.xml for road topology
 - [ ] JavaFX window with canvas
 - [ ] Render road network
