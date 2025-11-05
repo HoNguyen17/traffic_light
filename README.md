@@ -14,6 +14,7 @@ An Java application that simulates traffic using SUMO (Simulation of Urban Mobil
 
 
 ## Project Structure
+//////////////////////////////////////////////////////////////////////////////
 TraaShTrafficSimulator/
 ├── lib/
 │   └── TraaS.jar          # TraaS library for SUMO integration
@@ -29,7 +30,7 @@ TraaShTrafficSimulator/
 │   ├── TestTraaS.java     # Main simulation controller
 │   └── TraaSTools.java    # SUMO utility methods
 └── createMap.sh           # Script to generate simulation files
-
+///////////////////////////////////////////////////////////////////////////////////////////
 ## Dependencies
 
 ### lib/TraaS.jar
