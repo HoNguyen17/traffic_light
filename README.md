@@ -71,11 +71,14 @@ Traffic_light/
 - Linux/Mac environment (commands use : classpath separator)
 
 ### Compile
+```
 cd /path/to/TraaShTrafficSimulator
 javac -cp "lib/TraaS.jar" src/*.java
-
+```
 ### Run
+```
 java -cp "lib/TraaS.jar:src" TestTraaS
+```
 
 ### Notes
 - Classpath includes both the TraaS library and compiled classes
