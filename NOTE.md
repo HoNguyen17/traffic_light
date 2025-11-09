@@ -15,17 +15,18 @@ and extensible object-oriented wrapper around it. This wrapper should:
 - Enable grouping, filtering, and event handling
 
 Source for building wrapper:
-https://sumo.dlr.de/javadoc/traas/ <br>
+https://sumo.dlr.de/javadoc/traas/ 
+1. Use the TraaS API to connect to a running SUMO simulation.
 From it.polito.appeal.traci.SumoTraciConnection:
 ``` 
 SumoTraciConnection  conn  =  new  SumoTraciConnection(sumo_bin, config_file);
 ```
-1. Step through the simulation in real time
+2. Step through the simulation in real time
 From it.polito.appeal.traci.SumoTraciConnection:
 ```
 conn.do_timestep();
 ```
-2. Traffic Light Management
+3. Traffic Light Management
 - Display traffic light states and phase durations:
 From de.tudresden.sumo.cmd.Trafficlight:
 ```
@@ -34,11 +35,11 @@ String  tlsPhaseName  = (String)conn.do_job_get(Trafficlight.getPhaseName("Inser
 ```
 - Show traffic lights with current phase indicators. (same with above??)
 - Allow users to adjust phase durations and observe effects on traffic flow. 
-3. Vehicle Related
+4. Vehicle Related
 - Display moving vehicles with color-coded icons.
 - Show subsets of vehicles according to their properties (filtered by e.g. color, speed, 
 or location) (needed in wrapper)
-4. Statistics & Analytics
+5. Statistics & Analytics
   Track metrics such as: 
 - Average speed 
 - Vehicle density per edge 
@@ -61,6 +62,7 @@ or location) (needed in wrapper)
 - Save simulation statistics to CSV for external analysis. 
 - Generate PDF summaries with charts, metrics, and timestamps. 
 - Include filters (e.g. only red cars, only congested edges) in exports. 
+
 
 
 
