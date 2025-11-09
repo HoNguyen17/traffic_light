@@ -5,10 +5,10 @@ import de.tudresden.sumo.cmd.Vehicle;
 import de.tudresden.sumo.cmd.Inductionloop;
 import de.tudresden.sumo.cmd.Trafficlight;
 import de.tudresden.sumo.objects.SumoVehicleData;
-class TestTraa { 
+public class TestTraaS { 
 public static void main ( String [] args){ 
 String sumo_bin = "sumo";
-        String config_file = "data/test_1.sumocfg";
+        String config_file = "../resource/test_1.sumocfg";
         double step_length = 1;
 
         if (args.length > 0) {
