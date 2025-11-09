@@ -42,7 +42,9 @@ String  tlsPhaseName  = (String)conn.do_job_get(Trafficlight.getPhaseName("Inser
 - Show subsets of vehicles according to their properties (filtered by e.g. color, speed, 
 or location)
 - Inject vehicles
-5. Statistics & Analytics
+5. Edge Related
+- ???
+6. Statistics & Analytics
   Track metrics such as: 
 - Average speed 
 - Vehicle density per edge 
@@ -73,6 +75,7 @@ or location)
 - Allow users to experiment with traffic light timing to improve flow. 
 - Provide feedback on performance metrics after adjustments. 
 - Optionally integrate simple rule-based adaptation. 
+
 
 
 
