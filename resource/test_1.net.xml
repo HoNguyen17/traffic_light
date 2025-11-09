@@ -4,7 +4,6 @@
 <neteditConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/neteditConfiguration.xsd">
 
     <input>
-    <!-- Change the sumofg-file value -->
         <sumocfg-file value="data\test_1.sumocfg"/>
         <sumo-net-file value="data\test_1.net.xml"/>
     </input>
@@ -168,3 +167,4 @@
     <connection from=":J1_15" to="E2" fromLane="0" toLane="0" dir="l" state="M"/>
 
 </net>
+
