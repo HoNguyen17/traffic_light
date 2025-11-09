@@ -1,4 +1,5 @@
 ### How to run
+Change directory to src, then
 ```
 javac -cp "../lib/TraaS.jar;." TestTraaS.java; java -cp "../lib/TraaS.jar;." TestTraaS
 ```
@@ -26,4 +27,5 @@ String  tlsPhaseName  = (String)conn.do_job_get(Trafficlight.getPhaseName("Inser
 - Inject vehicles
 - Read telemetry
 - Control traffic lights programmatically
+
 - Enable control over vehicle parameters (speed, color, route)
