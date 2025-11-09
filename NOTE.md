@@ -16,22 +16,24 @@ and extensible object-oriented wrapper around it. This wrapper should:
 
 Source for building wrapper:
 https://sumo.dlr.de/javadoc/traas/
-From TraaS.jar:
+From it.polito.appeal.traci.SumoTraciConnection:
 ``` 
 SumoTraciConnection  conn  =  new  SumoTraciConnection(sumo_bin, config_file);
 ```
 1. Step through the simulation in real time
-From TraaS.jar:
+From it.polito.appeal.traci.SumoTraciConnection:
 ```
 conn.do_timestep();
 ```
 2. Traffic Light Management
 - Display traffic light states and phase durations:
+From de.tudresden.sumo.cmd.Trafficlight:
 ```
 int  tlsPhase  = (int)conn.do_job_get(Trafficlight.getPhase("InSertNameHere"));
 String  tlsPhaseName  = (String)conn.do_job_get(Trafficlight.getPhaseName("InserNameHere"));
 ```
 - Show traffic lights with current phase indicators. (same with above??)
+- Allow users to adjust phase durations and observe effects on traffic flow. 
 3. Vehicle Related
 - Display moving vehicles with color-coded icons.
 - Show subsets of vehicles according to their properties (filtered by e.g. color, speed, 
@@ -54,12 +56,11 @@ or location) (needed in wrapper)
 - Support batch injection for stress testing. 
 - Enable control over vehicle parameters (speed, color, route). (could be in wrapper)
 4. Traffic Light Management 
-- Display traffic light states and phase durations. 
 - Enable manual phase switching via GUI. 
-- Allow users to adjust phase durations and observe effects on traffic flow. 
 5. Exportable Reports 
 - Save simulation statistics to CSV for external analysis. 
 - Generate PDF summaries with charts, metrics, and timestamps. 
 - Include filters (e.g. only red cars, only congested edges) in exports. 
+
 
 
