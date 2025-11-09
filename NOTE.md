@@ -6,6 +6,7 @@ javac -cp "../lib/TraaS.jar;." TestTraaS.java; java -cp "../lib/TraaS.jar;." Tes
 . : to start at current directory
 ### Requirement
 - Create JavaDoc for every class created
+## Cores Features
 ### Features for wrapper (Need to specify library's branch)
 #### Basic Description
 TraaS uses static methods and procedural patterns. Your task is to build a clean, reusable, 
@@ -34,11 +35,13 @@ int  tlsPhase  = (int)conn.do_job_get(Trafficlight.getPhase("InSertNameHere"));
 String  tlsPhaseName  = (String)conn.do_job_get(Trafficlight.getPhaseName("InserNameHere"));
 ```
 - Show traffic lights with current phase indicators. (same with above??)
-- Allow users to adjust phase durations and observe effects on traffic flow. 
+- Allow users to adjust phase durations and observe effects on traffic flow.
+- Control traffic lights programmatically.
 4. Vehicle Related
 - Display moving vehicles with color-coded icons.
 - Show subsets of vehicles according to their properties (filtered by e.g. color, speed, 
-or location) (needed in wrapper)
+or location)
+- Inject vehicles
 5. Statistics & Analytics
   Track metrics such as: 
 - Average speed 
@@ -46,22 +49,30 @@ or location) (needed in wrapper)
 - Congestion hotspots 
 - Travel time distribution 
 - Display charts and summaries in real time. 
-
-- Inject vehicles, read telemetry, and control traffic lights programmatically.
-### Feature unrelated with wrapper (maybe)
+- Read telemetry
+### Features unrelated with wrapper (maybe)
 1. Interactive Map Visualization 
 - Render the road network.
 - Support zooming, panning, and camera rotation. 
-3. Vehicle Injection & Control 
+2. Vehicle Injection & Control 
 - Allow users to create vehicles on specific edges via GUI. (could be in wrapper)
 - Support batch injection for stress testing. 
 - Enable control over vehicle parameters (speed, color, route). (could be in wrapper)
-4. Traffic Light Management 
-- Enable manual phase switching via GUI. 
-5. Exportable Reports 
+3. Traffic Light Management 
+- Enable manual phase switching via GUI. (base need in wrapper)
+4. Exportable Reports 
 - Save simulation statistics to CSV for external analysis. 
 - Generate PDF summaries with charts, metrics, and timestamps. 
-- Include filters (e.g. only red cars, only congested edges) in exports. 
+- Include filters (e.g. only red cars, only congested edges) in exports.
+## Additional Recommended Features 
+1. Stress Testing Tools 
+- Simulate heavy traffic on selected edges.
+- Observe system behavior under load.
+- Compare static vs adaptive traffic light strategies. 
+2. Adaptive Traffic Control 
+- Allow users to experiment with traffic light timing to improve flow. 
+- Provide feedback on performance metrics after adjustments. 
+- Optionally integrate simple rule-based adaptation. 
 
 
 
