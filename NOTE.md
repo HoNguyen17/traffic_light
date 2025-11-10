@@ -1,5 +1,5 @@
 ### How to run
-Change directory to src, then
+Change directory to src," cd src " then 
 ```
 javac -cp "../lib/TraaS.jar;." TestTraaS.java; java -cp "../lib/TraaS.jar;." TestTraaS
 ```
