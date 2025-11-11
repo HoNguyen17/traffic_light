@@ -5,10 +5,11 @@ import de.tudresden.sumo.cmd.Vehicle;
 import de.tudresden.sumo.cmd.Inductionloop;
 import de.tudresden.sumo.cmd.Trafficlight;
 import de.tudresden.sumo.objects.SumoVehicleData;
+import wrapper.TrafficLight;
 public class TestTraaS { 
 public static void main ( String [] args){ 
 String sumo_bin = "sumo";
-        String config_file = "../resource/test_1.sumocfg";
+        String config_file = "../resource/test_2_traffic.sumocfg";
         double step_length = 1;
 
         if (args.length > 0) {
@@ -33,8 +34,9 @@ String sumo_bin = "sumo";
             //     conn.do_job_set(Vehicle.addFull("v" + i, "r1", "car", "now", "0", "0", "max", "current", "max", "current", "", "", "", 0, 0));
                 double timeSeconds = (double)conn.do_job_get(Simulation.getTime());
                 int tlsPhase = (int)conn.do_job_get(Trafficlight.getPhase("J1"));
-                String tlsPhaseName = (String)conn.do_job_get(Trafficlight.getPhaseName("J1"));
-                System.out.println(String.format("Step %s, tlsPhase %s (%s)", timeSeconds, tlsPhase, tlsPhaseName));
+                TrafficLight.listTrafficLight(conn);
+                //String tlsPhaseName = (String)conn.do_job_get(Trafficlight.getPhaseName("J1"));
+                //System.out.println(String.format("Step %s, tlsPhase %s (%s)", timeSeconds, tlsPhase, tlsPhaseName));
                    
                 System.out.println(timeSeconds);
 
