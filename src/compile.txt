@@ -1,0 +1,4 @@
+cd src
+javac -cp "../lib/TraaS.jar;." MainTest.java; java -cp "../lib/TraaS.jar;." MainTest;
+
+TraaS.jar is runtime library, needed in all compile.

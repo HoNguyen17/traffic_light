@@ -5,7 +5,7 @@ import de.tudresden.sumo.cmd.Vehicle;
 import de.tudresden.sumo.cmd.Inductionloop;
 import de.tudresden.sumo.cmd.Trafficlight;
 import de.tudresden.sumo.objects.SumoVehicleData;
-import wrapper.TrafficLight;
+import wrapper.TrafficLightWrapper;
 public class TestTraaS { 
 public static void main ( String [] args){ 
 String sumo_bin = "sumo";
