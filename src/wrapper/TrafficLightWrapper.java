@@ -7,34 +7,49 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class TrafficLightWrapper {
-    TrafficLightWrapper(){
-        System.out.println("Test");
+    String ID;
+    TrafficLightWrapper(String temp){
+        ID = temp;
+        System.out.println("Added " + temp + ".");
     }
-    // List all traffic light IDs
-    public static List<String> listTrafficLight(SumoTraciConnection temp, int po) {
-        try {
-            List<String> IDsList = (List<String>)temp.do_job_get(Trafficlight.getIDList());
-            if (po == 1) {
-                System.out.println("List of Traffic Light IDs: ");
-                for (String x : IDsList) {System.out.print(x + " ");}
-                System.out.print("\n");
-            }
-            return IDsList;
-        }
-        catch (Exception A) {
-            System.out.println("Didn't work");
-        }
-        List<String> bin = new ArrayList<String>();
-        return bin;
+    // get ID
+    public String getID(int po) {
+        if (po == 1) {System.out.println(ID);}
+        return ID;
     }
-    // test
-    public static void Test(SumoTraciConnection temp){
+    // get phase
+    public int getPhase(SimulationWrapper temp, int po){
         try {
-            int tlsPhase = (int)temp.do_job_get(Trafficlight.getPhase("J1"));
-            System.out.println(String.format("tlsPhase of J1: %d", tlsPhase));
+            int tlsPhase = (int)temp.conn.do_job_get(Trafficlight.getPhase(ID));
+            if (po == 1) {System.out.println(String.format("tlsPhase of %s: %d", ID, tlsPhase));}
+            return tlsPhase;
         }
         catch(Exception B) {
             System.out.println("Didn't work");
         }
+        return -1;
     }
+    // update all traffic light IDs
+    public static void updateTrafficLightIDs(SimulationWrapper temp) {
+        try {
+            List<String> IDsList = (List<String>)temp.conn.do_job_get(Trafficlight.getIDList());
+            for (String x : IDsList) {
+                TrafficLightWrapper y = new TrafficLightWrapper(x);
+                temp.TrafficLightList.add(y);
+            }
+        }
+        catch (Exception A) {
+            System.out.println("Didn't work");
+        }
+    }
+    // test
+    // public static void Test(SumoTraciConnection temp){
+    //     try {
+    //         int tlsPhase = (int)temp.do_job_get(Trafficlight.getPhase("J1"));
+    //         System.out.println(String.format("tlsPhase of J1: %d", tlsPhase));
+    //     }
+    //     catch(Exception B) {
+    //         System.out.println("Didn't work");
+    //     }
+    // }
 }

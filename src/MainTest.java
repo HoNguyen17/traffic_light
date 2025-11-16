@@ -10,15 +10,12 @@ public static void main ( String [] args){
         SimulationWrapper A = new SimulationWrapper(config_file, step_length);
         try {
             A.Start();
+            A.printTrafficLightList();
             for (int i = 0; i < 100; i++) {
                 Thread.sleep(200);
                 A.Step();
-                A.Test();
                 A.getTime(1);
-                // print all traffic light IDs
-                if ( i == 0 ) {
-                    TrafficLightWrapper.listTrafficLight(A.getSimulation(), 1);
-                }
+                A.getTLPhase(0);
             }
             A.End();
         }

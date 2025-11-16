@@ -8,7 +8,8 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class SimulationWrapper {
-    SumoTraciConnection conn;
+    protected SumoTraciConnection conn;
+    protected List<TrafficLightWrapper> TrafficLightList = new ArrayList<TrafficLightWrapper>();
     // Constructor 1
     public SimulationWrapper(String sumocfg, double step_length){
         String sumo_bin = "sumo";
@@ -25,17 +26,17 @@ public class SimulationWrapper {
         conn.addOption("step-length", step_length + "");
         conn.addOption("start", "true"); //start sumo immediately
         System.out.println("Simulation created");
-
     }
-    // Get simulation
-    public SumoTraciConnection getSimulation() {
+    // Get simulation connection
+    public SumoTraciConnection getConn() {
         return conn;
     }
-    // Start simulation
+    // Start simulation, update TrafficLightList, more will be implemented
     public void Start(){
         try {
             conn.runServer();
             conn.setOrder(1);
+            TrafficLightWrapper.updateTrafficLightIDs(this);
             System.out.println("Started successfully.");
         }
         catch(Exception e) {System.out.println("Failed to start.");}
@@ -59,12 +60,31 @@ public class SimulationWrapper {
         catch(Exception e) {System.out.println("Can't get the time.");}
         return -1;
     }
-    public void Test() {
-        TrafficLightWrapper.Test(conn);
-        try {
-        }
-        catch(Exception e) {
-            System.out.println("hmm");
+
+
+//===== TRAFFIC LIGHT STUFF =====
+    // print all traffic light IDs
+    public void printTrafficLightList() {
+        System.out.println("List of Traffic Light IDs:");
+        for (TrafficLightWrapper x : TrafficLightList) {
+            x.getID(1);
         }
     }
+    // get phase of a traffic light
+    public int getTLPhase(int temp) {
+        TrafficLightWrapper x = TrafficLightList.get(temp);
+        int phase = x.getPhase(this, 1);
+        return phase;
+    }
+
+
+
+    // public void Test() {
+    //     TrafficLightWrapper.Test(conn);
+    //     try {
+    //     }
+    //     catch(Exception e) {
+    //         System.out.println("hmm");
+    //     }
+    // }
 }
