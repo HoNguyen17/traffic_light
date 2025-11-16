@@ -29,7 +29,7 @@ public class TrafficLightWrapper {
         }
         return -1;
     }
-    // update all traffic light IDs
+    // update all traffic light IDs of simulation
     public static void updateTrafficLightIDs(SimulationWrapper temp) {
         try {
             List<String> IDsList = (List<String>)temp.conn.do_job_get(Trafficlight.getIDList());
@@ -42,14 +42,4 @@ public class TrafficLightWrapper {
             System.out.println("Didn't work");
         }
     }
-    // test
-    // public static void Test(SumoTraciConnection temp){
-    //     try {
-    //         int tlsPhase = (int)temp.do_job_get(Trafficlight.getPhase("J1"));
-    //         System.out.println(String.format("tlsPhase of J1: %d", tlsPhase));
-    //     }
-    //     catch(Exception B) {
-    //         System.out.println("Didn't work");
-    //     }
-    // }
 }

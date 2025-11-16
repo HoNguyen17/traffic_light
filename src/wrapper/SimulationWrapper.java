@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class SimulationWrapper {
     protected SumoTraciConnection conn;
-    protected List<TrafficLightWrapper> TrafficLightList = new ArrayList<TrafficLightWrapper>();
+    protected final List<TrafficLightWrapper> TrafficLightList = new ArrayList<TrafficLightWrapper>();
     // Constructor 1
     public SimulationWrapper(String sumocfg, double step_length){
         String sumo_bin = "sumo";
@@ -27,10 +27,7 @@ public class SimulationWrapper {
         conn.addOption("start", "true"); //start sumo immediately
         System.out.println("Simulation created");
     }
-    // Get simulation connection
-    public SumoTraciConnection getConn() {
-        return conn;
-    }
+//===== SIMULATION STUFF ==================================
     // Start simulation, update TrafficLightList, more will be implemented
     public void Start(){
         try {
@@ -62,7 +59,7 @@ public class SimulationWrapper {
     }
 
 
-//===== TRAFFIC LIGHT STUFF =====
+//===== TRAFFIC LIGHT STUFF ===============================
     // print all traffic light IDs
     public void printTrafficLightList() {
         System.out.println("List of Traffic Light IDs:");
@@ -76,15 +73,6 @@ public class SimulationWrapper {
         int phase = x.getPhase(this, 1);
         return phase;
     }
-
-
-
-    // public void Test() {
-    //     TrafficLightWrapper.Test(conn);
-    //     try {
-    //     }
-    //     catch(Exception e) {
-    //         System.out.println("hmm");
-    //     }
-    // }
+//===== VEHICLE STUFF =====================================
+    // not implemented
 }
