@@ -11,8 +11,7 @@ public class SimulationWrapper {
     protected SumoTraciConnection conn;
     protected final List<TrafficLightWrapper> TrafficLightList = new ArrayList<TrafficLightWrapper>();
     // Constructor 1
-    public SimulationWrapper(String sumocfg, double step_length){
-        String sumo_bin = "sumo";
+    public SimulationWrapper(String sumocfg, double step_length, String sumo_bin){
         conn = new SumoTraciConnection(sumo_bin, sumocfg);
         conn.addOption("step-length", step_length + "");
         conn.addOption("start", "true"); //start sumo immediately
@@ -66,6 +65,7 @@ public class SimulationWrapper {
         for (TrafficLightWrapper x : TrafficLightList) {
             x.getID(1);
         }
+        System.out.println("");
     }
     // get phase of a traffic light
     public int getTLPhase(int temp) {

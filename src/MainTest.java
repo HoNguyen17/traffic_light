@@ -4,10 +4,11 @@ import java.util.List;
 
 public class MainTest { 
 public static void main ( String [] args){ 
-        // config_file path is based on this class
+        // config_file path is based on this class path
         String config_file = "../resource/test_2_traffic.sumocfg"; 
         double step_length = 1;
-        SimulationWrapper A = new SimulationWrapper(config_file, step_length);
+        String sumo_bin = "sumo";
+        SimulationWrapper A = new SimulationWrapper(config_file, step_length, sumo_bin);
         try {
             A.Start();
             A.printTrafficLightList();

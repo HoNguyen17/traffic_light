@@ -14,7 +14,7 @@ public class TrafficLightWrapper {
     }
     // get ID
     public String getID(int po) {
-        if (po == 1) {System.out.println(ID);}
+        if (po == 1) {System.out.print(" " + ID);}
         return ID;
     }
     // get phase
@@ -32,6 +32,7 @@ public class TrafficLightWrapper {
     // update all traffic light IDs of simulation
     public static void updateTrafficLightIDs(SimulationWrapper temp) {
         try {
+            @SuppressWarnings("unchecked")
             List<String> IDsList = (List<String>)temp.conn.do_job_get(Trafficlight.getIDList());
             for (String x : IDsList) {
                 TrafficLightWrapper y = new TrafficLightWrapper(x);
