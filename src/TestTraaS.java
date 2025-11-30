@@ -10,8 +10,8 @@ import java.util.List;
 
 public class TestTraaS {
 public static void main ( String [] args){ 
-String sumo_bin = "sumo";
-        String config_file = "../resource/test_1.sumocfg";
+String sumo_bin = "sumo-gui";
+        String config_file = "../resource/test_2_traffic.sumocfg";
         double step_length = 1;
 
         if (args.length > 0) {
@@ -30,7 +30,7 @@ String sumo_bin = "sumo";
             conn.runServer();
             conn.setOrder(1);
 
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < 200; i++) {
                 Thread.sleep(200);
                 conn.do_timestep();
 
@@ -82,6 +82,19 @@ String sumo_bin = "sumo";
                     }
                     System.out.println(String.format("  Lane %s -> %s", controlledLanes.get(j), meaning));
                 }
+
+                // --- vehicle & simulation info ---
+                List<String> vehicleID = (List<String>) conn.do_job_get(Vehicle.getIDList());
+                System.out.println("Vehicle IDs:");
+                for (String id : vehicleID) {
+                    System.out.println("  " + id);
+                }
+
+
+
+
+
+
 
                 // --- Print controlled links for completeness ---
                 System.out.println(String.format("Controlled Links: %s", controlledLinks));

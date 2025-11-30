@@ -3,6 +3,7 @@ package wrapper;
 import it.polito.appeal.traci.SumoTraciConnection;
 import de.tudresden.sumo.cmd.Simulation;
 import de.tudresden.sumo.cmd.Trafficlight;
+//import de.tudresden.sumo.cmd.Vehicle;
 
 import java.util.List;
 import java.util.ArrayList;
