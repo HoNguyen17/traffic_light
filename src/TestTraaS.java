@@ -30,7 +30,7 @@ String sumo_bin = "sumo-gui";
             conn.runServer();
             conn.setOrder(1);
 
-            for (int i = 0; i < 200; i++) {
+            for (int i = 0; i < 100; i++) {
                 Thread.sleep(200);
                 conn.do_timestep();
 
@@ -88,11 +88,13 @@ String sumo_bin = "sumo-gui";
                 System.out.println("Vehicle IDs:");
                 for (String id : vehicleID) {
                     System.out.println("  " + id);
+
+                    Double speed = (Double) conn.do_job_get(Vehicle.getSpeed(id));
+                    String laneID = (String) conn.do_job_get(Vehicle.getLaneID(id));
+                    //Double pos = (Double) conn.do_job_get(Vehicle.getPosition(id));
+                    System.out.println(String.format("    Speed: %.2f m/s, Lane: %s", speed, laneID));
+
                 }
-
-
-
-
 
 
 
