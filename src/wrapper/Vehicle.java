@@ -1,8 +1,9 @@
-package model;
-
-import java.util.Objects;
+/*
+package wrapper;
 
 import de.tudresden.sumo.objects.Position;
+
+import java.util.Objects;
 
 public class Vehicle {
 
@@ -52,3 +53,4 @@ public class Vehicle {
     }
 
 }
+*/
