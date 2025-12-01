@@ -5,6 +5,7 @@ import de.tudresden.sumo.cmd.Vehicle;
 import de.tudresden.sumo.cmd.Inductionloop;
 import de.tudresden.sumo.cmd.Trafficlight;
 import de.tudresden.sumo.objects.SumoVehicleData;
+import de.tudresden.sumo.objects.SumoPosition2D;
 
 import java.util.List;
 
@@ -91,8 +92,14 @@ String sumo_bin = "sumo-gui";
 
                     Double speed = (Double) conn.do_job_get(Vehicle.getSpeed(id));
                     String laneID = (String) conn.do_job_get(Vehicle.getLaneID(id));
+                    SumoPosition2D vehicle2DObject =  (SumoPosition2D) conn.do_job_get(Vehicle.getPosition(id));
                     //Double pos = (Double) conn.do_job_get(Vehicle.getPosition(id));
+                    String position = vehicle2DObject.toString();
+                    double x = vehicle2DObject.x;
+                    double y = vehicle2DObject.y;
+                    position = String.format("(%.2f, %.2f)", x, y);
                     System.out.println(String.format("    Speed: %.2f m/s, Lane: %s", speed, laneID));
+                    System.out.println(String.format("    Position: %s", position));
 
                 }
 
