@@ -16,7 +16,9 @@ public static void main ( String [] args){
                 Thread.sleep(200);
                 A.Step();
                 A.getTime(1);
-                A.getTLPhase(0);
+                A.getTLPhaseNum(0);
+                A.getTLPhaseDef(0);
+                //A.getTLControlledLinks(0);
             }
             A.End();
         }

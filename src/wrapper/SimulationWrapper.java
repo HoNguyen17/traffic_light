@@ -67,11 +67,22 @@ public class SimulationWrapper {
         }
         System.out.println("");
     }
-    // get phase of a traffic light
-    public int getTLPhase(int temp) {
+    // get phase number of a traffic light
+    public int getTLPhaseNum(int temp) {
         TrafficLightWrapper x = TrafficLightList.get(temp);
-        int phase = x.getPhase(this, 1);
-        return phase;
+        int phaseNum= x.getPhaseNum(this, 1);
+        return phaseNum;
+    }
+    // get phase definition of a traffic light (current light state)
+    public String getTLPhaseDef(int temp) {
+        TrafficLightWrapper x = TrafficLightList.get(temp);
+        String phaseDef = x.getPhaseDef(this, 1);
+        return phaseDef;
+    }
+    public List<String[][]> getTLControlledLinks(int temp) {
+        TrafficLightWrapper x = TrafficLightList.get(temp);
+        List<String[][]> controlledLinks = x.getControlledLinks(this, 1);
+        return null;
     }
 //===== VEHICLE STUFF =====================================
     // not implemented

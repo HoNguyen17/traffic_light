@@ -5,13 +5,14 @@ import de.tudresden.sumo.cmd.Vehicle;
 import de.tudresden.sumo.cmd.Inductionloop;
 import de.tudresden.sumo.cmd.Trafficlight;
 import de.tudresden.sumo.objects.SumoVehicleData;
+import de.tudresden.sumo.cmd.Vehicletype;
 
 import java.util.List;
 
 public class TestTraaS {
 public static void main ( String [] args){ 
 String sumo_bin = "sumo";
-        String config_file = "../resource/test_1.sumocfg";
+        String config_file = "../resource/test_2_traffic.sumocfg";
         double step_length = 1;
 
         if (args.length > 0) {
@@ -29,9 +30,11 @@ String sumo_bin = "sumo";
             //start Traci Server
             conn.runServer();
             conn.setOrder(1);
+            List<String> vehicletype = (List<String>)conn.do_job_get(Vehicletype.getIDList());
+            System.out.println("Vehicle type: " + vehicletype);
 
             for (int i = 0; i < 100; i++) {
-                Thread.sleep(200);
+                Thread.sleep(1000);
                 conn.do_timestep();
 
                 // --- Traffic light & simulation info ---
