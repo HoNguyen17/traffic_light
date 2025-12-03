@@ -59,6 +59,7 @@ public class SimulationWrapper {
 
 
 //===== TRAFFIC LIGHT STUFF ===============================
+//===== GETTER ============================================
     // print all traffic light IDs
     public void printTrafficLightList() {
         System.out.println("List of Traffic Light IDs:");
@@ -83,6 +84,11 @@ public class SimulationWrapper {
         TrafficLightWrapper x = TrafficLightList.get(temp);
         List<String[][]> controlledLinks = x.getControlledLinks(this, 1);
         return null;
+    }
+//===== SETTER ============================================
+    public void setTLPhaseDef(int temp, String input) {
+        TrafficLightWrapper x = TrafficLightList.get(temp);
+        x.setPhaseDefWPT(this, input, 10);
     }
 //===== VEHICLE STUFF =====================================
     // not implemented

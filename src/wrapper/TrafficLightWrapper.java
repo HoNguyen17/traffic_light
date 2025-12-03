@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class TrafficLightWrapper {
     String ID;
+    String originProgramID;
     TrafficLightWrapper(String temp){
         ID = temp;
         System.out.println("Added " + temp + ".");
@@ -46,7 +47,7 @@ public class TrafficLightWrapper {
     public List<String[][]> getControlledLinks(SimulationWrapper temp, int po) {
         try {
             List<String[][]> controlledLinks = (List<String[][]>)temp.conn.do_job_get(Trafficlight.getControlledLinks(ID));
-            if (po == 1){System.out.println("Current phase definition of " + ID + ":" + controlledLinks);}
+            if (po == 1){System.out.println("Current controlled links of " + ID + ":" + controlledLinks.get(0));}
             return controlledLinks;
         }   
         catch (Exception C) {
@@ -55,7 +56,50 @@ public class TrafficLightWrapper {
         return null;
     }
 //=================SETTER================================
-
+    // set phase definition (Red-Green-Yellow)
+    public boolean setPhaseDef(SimulationWrapper temp, String input) {
+        try {               //maybe need check??
+            temp.conn.do_job_set(Trafficlight.setRedYellowGreenState(ID, input));
+            Thread.sleep(2000); 
+            temp.conn.do_job_set(Trafficlight.setProgram(ID, "0"));
+        }
+        catch (Exception D) {
+            System.out.println("Unable to set controlled links of traffic light");
+        }
+        return false;
+    // set phase definition with phase time (Red-Green-Yellow with time)  
+    }
+        public boolean setPhaseDefWPT(SimulationWrapper temp, String input, double time) {
+        try {               //maybe need check??
+            long roundedTime = Math.round(time * 200);
+            temp.conn.do_job_set(Trafficlight.setRedYellowGreenState(ID, input));
+            Thread.sleep(roundedTime); 
+            temp.conn.do_job_set(Trafficlight.setProgram(ID, "0"));
+        }
+        catch (Exception D) {
+            System.out.println("Unable to set controlled links of traffic light");
+        }
+        return false;
+    }
+    //     public boolean setPhaseDef2(SimulationWrapper temp, String input) {
+    //     class TempThread extends Thread {
+    //             boolean debugFlag = false;
+    //         public void run() {
+    //             try {               //maybe need check??
+    //                 temp.conn.do_job_set(Trafficlight.setRedYellowGreenState(ID, input));
+    //                 Thread.sleep(2000); 
+    //                 temp.conn.do_job_set(Trafficlight.setProgram(ID, "0"));
+    //                 debugFlag = true;
+    //             }
+    //             catch (Exception D) {
+    //                 System.out.println("Unable to set controlled links of traffic light");
+    //             }
+    //         }
+    //     }
+    //     TempThread T = new TempThread();
+    //     T.start();
+    //     return T.debugFlag;
+    // }
 //=================STATIC================================
     // update all traffic light IDs of simulation
     public static void updateTrafficLightIDs(SimulationWrapper temp) {

@@ -61,16 +61,15 @@ String sumo_bin = "sumo";
                 List<String> IDsList = (List<String>) conn.do_job_get(Trafficlight.getIDList());
 
                 // --- Print core information ---
-                System.out.println(String.format("Index of the current program: %s", indexProgram));
-                System.out.println(String.format("Step %.2f, TLS Phase %d (%s): ", timeSeconds, tlsPhase, tlsPhaseName));
-                System.out.println(String.format("Phase %d duration: %.2f seconds", tlsPhase, phaseDuration));
-                System.out.println(String.format("Index of the current phase: %d", indexPhase));
-                System.out.println(String.format("Number of traffic lights in the network: %d", vehicleCount));
-                System.out.println(String.format("Controlled Junctions: %s", controlledJunctions));
-                System.out.println(String.format("IDs of all traffic lights: %s", IDsList));
-                System.out.println(String.format("Next switch at: %.2f seconds", nextSwitch));
-                System.out.println(String.format("Current simulation time: %.2f", timeSeconds));
-
+                //System.out.println(String.format("Index of the current program: %s", indexProgram));
+                //System.out.println(String.format("Step %.2f, TLS Phase %d (%s): ", timeSeconds, tlsPhase, tlsPhaseName));
+                //System.out.println(String.format("Phase %d duration: %.2f seconds", tlsPhase, phaseDuration));
+                //System.out.println(String.format("Index of the current phase: %d", indexPhase));
+                //System.out.println(String.format("Number of traffic lights in the network: %d", vehicleCount));
+                //System.out.println(String.format("Controlled Junctions: %s", controlledJunctions));
+                //System.out.println(String.format("IDs of all traffic lights: %s", IDsList));
+                //System.out.println(String.format("Next switch at: %.2f seconds", nextSwitch));
+                //System.out.println(String.format("Current simulation time: %.2f", timeSeconds));
                 // --- Print controlled lanes and their signal states ---
                 System.out.println("Controlled Lanes and their Red-Yellow-Green (RYG) states:");
                 for (int j = 0; j < controlledLanes.size() && j < lightState.length(); j++) {
