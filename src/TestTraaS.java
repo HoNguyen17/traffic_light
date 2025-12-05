@@ -10,7 +10,7 @@ import java.util.List;
 
 public class TestTraaS {
 public static void main ( String [] args){ 
-String sumo_bin = "sumo";
+String sumo_bin = "sumo-gui";
         String config_file = "../resource/test_1.sumocfg";
         double step_length = 1;
 

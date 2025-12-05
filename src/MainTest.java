@@ -1,3 +1,4 @@
+import de.tudresden.sumo.cmd.Vehicle;
 import wrapper.*;
 
 import java.util.List;
@@ -16,6 +17,20 @@ public static void main ( String [] args){
                 A.Step();
                 A.getTime(1);
                 A.getTLPhase(0);
+
+                // Test Vehicle Stuff
+                List<String> vehID = A.getIDList(); // Get IDs list of all current vehicles in the current simulation
+                if (!vehID.isEmpty()) { // Check if there is at least one vehicle in the simulation
+                    String firstVehID = vehID.get(0); // Choose the first vehicle in the list to test
+                    System.out.println("Testing for the vehicle: " + firstVehID);
+                    A.getTypeID(firstVehID);
+                    A.getColor(firstVehID);
+                    A.getPosition(firstVehID);
+                    A.getSpeed(firstVehID);
+                }
+                else  {
+                    System.out.println("No vehicles found");
+                }
             }
             A.End();
         }
@@ -23,4 +38,4 @@ public static void main ( String [] args){
             System.out.println("Error in Main");
         }
     }
-} 
+}

@@ -1,14 +1,17 @@
 package wrapper;
 
+import de.tudresden.sumo.objects.SumoColor;
+import de.tudresden.sumo.objects.SumoPosition2D;
 import it.polito.appeal.traci.SumoTraciConnection;
 import de.tudresden.sumo.cmd.Simulation;
 import de.tudresden.sumo.cmd.Trafficlight;
+import de.tudresden.sumo.cmd.Vehicle;
 
 import java.util.List;
 import java.util.ArrayList;
 
 public class SimulationWrapper {
-    protected SumoTraciConnection conn;
+    public SumoTraciConnection conn;
     protected final List<TrafficLightWrapper> TrafficLightList = new ArrayList<TrafficLightWrapper>();
     // Constructor 1
     public SimulationWrapper(String sumocfg, double step_length){
@@ -74,5 +77,32 @@ public class SimulationWrapper {
         return phase;
     }
 //===== VEHICLE STUFF =====================================
-    // not implemented
+    // get Vehicle position
+    public SumoPosition2D getPosition(String ID) {
+        VehicleWrapper v = new wrapper.VehicleWrapper(ID);
+        return v.getPosition(this, 1);
+    }
+
+    // get Vehicle speed
+    public double getSpeed(String ID) {
+        VehicleWrapper v = new wrapper.VehicleWrapper(ID);
+        return v.getSpeed(this, 1);
+    }
+
+    // get Vehicle's ID list
+    public List<String> getIDList() {
+        return wrapper.VehicleWrapper.getIDList(this, 1);
+    }
+
+    // get Vehicle's type ID
+    public String getTypeID(String ID) {
+        VehicleWrapper v = new wrapper.VehicleWrapper(ID);
+        return v.getTypeID(this, 1);
+    }
+
+    // get Vehicle's color
+    public SumoColor getColor(String ID) {
+        VehicleWrapper v = new wrapper.VehicleWrapper(ID);
+        return v.getColor(this, 1);
+    }
 }
