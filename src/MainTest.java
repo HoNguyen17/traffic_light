@@ -13,7 +13,6 @@ public static void main ( String [] args){
             A.Start();
             A.printTrafficLightList();
             for (int i = 0; i < 100; i++) {
-                Thread.sleep(200);
                 A.Step();
                 A.getTime(1);
                 A.getTLPhaseNum(0);

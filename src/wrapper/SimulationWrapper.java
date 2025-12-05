@@ -9,7 +9,10 @@ import java.util.ArrayList;
 
 public class SimulationWrapper {
     protected SumoTraciConnection conn;
+    protected int delay = 200;
     protected final List<TrafficLightWrapper> TrafficLightList = new ArrayList<TrafficLightWrapper>();
+    //protected final List<EdgeWrapper> EdgeList = new ArrayList<EdgeWrapper>();
+    //List<String> VehicleList = new ArrayList<VehicleWrapper>();
     // Constructor 1
     public SimulationWrapper(String sumocfg, double step_length, String sumo_bin){
         conn = new SumoTraciConnection(sumo_bin, sumocfg);
@@ -39,7 +42,10 @@ public class SimulationWrapper {
     }
     // Do a simulation's time step
     public void Step(){
-        try {conn.do_timestep();}
+        try {
+            Thread.sleep(delay);
+            conn.do_timestep();
+        }
         catch(Exception e) {System.out.println("Failed to step.");}
     }
     // Close simulation
@@ -91,5 +97,6 @@ public class SimulationWrapper {
         x.setPhaseDefWPT(this, input, 10);
     }
 //===== VEHICLE STUFF =====================================
-    // not implemented
+//===== GETTER ============================================
+//===== SETTER ============================================
 }
