@@ -6,7 +6,8 @@ import java.util.List;
 public class MainTest { 
 public static void main ( String [] args){ 
         // config_file path is based on this class
-        String config_file = "../resource/test_2_traffic.sumocfg"; 
+        String config_file = "../resource/test_2_traffic.sumocfg";
+        // String sumo_bin = "sumo-gui";
         double step_length = 1;
         SimulationWrapper A = new SimulationWrapper(config_file, step_length);
         try {
@@ -27,10 +28,15 @@ public static void main ( String [] args){
                     A.getColor(firstVehID);
                     A.getPosition(firstVehID);
                     A.getSpeed(firstVehID);
+                    A.setSpeed(firstVehID, 36.369);
+                    A.setColor(firstVehID, 255, 0, 0, 255); // red
+                    A.setColor(firstVehID, 0, 255, 0, 255); // green
+                    A.setColor(firstVehID, 0, 0, 255, 255); // blue
                 }
                 else  {
                     System.out.println("No vehicles found");
                 }
+                System.out.println("-----------------------------------------------");
             }
             A.End();
         }

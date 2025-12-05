@@ -113,4 +113,34 @@ public class VehicleWrapper {
             return null;
         }
     }
+
+    // set Vehicle's speed
+    public void setSpeed(wrapper.SimulationWrapper temp, double speed, int po) {
+        try {
+            temp.conn.do_job_set(Vehicle.setSpeed(ID, speed));
+
+            if  (po==1) {
+                System.out.println(String.format("Set the speed of the vehicle that has the ID %s into %.3f m/s", ID, speed));
+            }
+        }
+
+        catch(Exception e) {
+            System.out.println("Cannot set the speed of the vehicle that has the ID " + ID + e.getMessage());
+        }
+    }
+
+    // set Vehicle's color
+    public void setColor(wrapper.SimulationWrapper temp, int r, int g, int b, int a, int po) {
+        try {
+            SumoColor color = new SumoColor(r, g, b, a);
+            temp.conn.do_job_set(Vehicle.setColor(ID, color));
+            if  (po==1) {
+                System.out.println(String.format("Set the color of the vehicle %s into SumoColor format (RGBA format): %d %d %d %d", ID, color.r, color.g, color.b, color.a));
+            }
+        }
+
+        catch(Exception e) {
+            System.out.println("Cannot set the color of the vehicle that has the ID " + ID + e.getMessage());
+        }
+    }
 }

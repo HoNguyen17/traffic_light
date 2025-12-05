@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class SimulationWrapper {
     public SumoTraciConnection conn;
     protected final List<TrafficLightWrapper> TrafficLightList = new ArrayList<TrafficLightWrapper>();
+
     // Constructor 1
     public SimulationWrapper(String sumocfg, double step_length){
         String sumo_bin = "sumo";
@@ -105,4 +106,17 @@ public class SimulationWrapper {
         VehicleWrapper v = new wrapper.VehicleWrapper(ID);
         return v.getColor(this, 1);
     }
+
+    // set Vehicle's speed
+    public void setSpeed(String ID, double speed) {
+        VehicleWrapper v = new wrapper.VehicleWrapper(ID);
+        v.setSpeed(this, speed, 1);
+    }
+
+    // set Vehicle's color
+    public void setColor(String ID, int r, int b, int g, int a) {
+        VehicleWrapper v = new wrapper.VehicleWrapper(ID);
+        v.setColor(this, r, g, b, a, 1);
+    }
+
 }
