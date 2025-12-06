@@ -3,7 +3,10 @@ package wrapper;
 import it.polito.appeal.traci.SumoTraciConnection;
 import de.tudresden.sumo.cmd.Simulation;
 import de.tudresden.sumo.cmd.Trafficlight;
+import de.tudresden.sumo.cmd.Vehicle;
 
+import de.tudresden.sumo.objects.SumoColor;
+import de.tudresden.sumo.objects.SumoPosition2D;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -98,5 +101,44 @@ public class SimulationWrapper {
     }
 //===== VEHICLE STUFF =====================================
 //===== GETTER ============================================
+    public SumoPosition2D getPosition(String ID) {
+        VehicleWrapper v = new wrapper.VehicleWrapper(ID);
+        return v.getPosition(this, 1);
+    }
+
+    // get Vehicle speed
+    public double getSpeed(String ID) {
+        VehicleWrapper v = new wrapper.VehicleWrapper(ID);
+        return v.getSpeed(this, 1);
+    }
+
+    // get Vehicle's ID list
+    public List<String> getIDList() {
+        return wrapper.VehicleWrapper.getIDList(this, 1);
+    }
+
+    // get Vehicle's type ID
+    public String getTypeID(String ID) {
+        VehicleWrapper v = new wrapper.VehicleWrapper(ID);
+        return v.getTypeID(this, 1);
+    }
+
+    // get Vehicle's color
+    public SumoColor getColor(String ID) {
+        VehicleWrapper v = new wrapper.VehicleWrapper(ID);
+        return v.getColor(this, 1);
+    }
 //===== SETTER ============================================
+    // set Vehicle's speed
+    public void setSpeed(String ID, double speed) {
+        VehicleWrapper v = new wrapper.VehicleWrapper(ID);
+        v.setSpeed(this, speed, 1);
+    }
+
+    // set Vehicle's color
+    public void setColor(String ID, int r, int b, int g, int a) {
+        VehicleWrapper v = new wrapper.VehicleWrapper(ID);
+        v.setColor(this, r, g, b, a, 1);
+    }
+
 }

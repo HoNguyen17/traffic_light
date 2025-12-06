@@ -1,4 +1,4 @@
-cd src/wrapper/
+cd src/wrapper/;
 javac -cp "../../lib/TraaS.jar;." *.java; 
 
 not work
